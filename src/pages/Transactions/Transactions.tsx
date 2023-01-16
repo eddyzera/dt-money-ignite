@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Summary } from '../../components'
+import { Header, SearchForm, Summary } from '../../components'
 import { PriceHighLight, TransactionsContainer, TransactionTable } from './styles'
 
 export const Transactions: React.FunctionComponent = () => {
@@ -8,6 +8,7 @@ export const Transactions: React.FunctionComponent = () => {
       <Header />
       <Summary />
       <TransactionsContainer>
+        <SearchForm />
         <TransactionTable>
           <tbody>
             <tr>
