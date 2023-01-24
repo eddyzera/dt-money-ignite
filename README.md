@@ -1,6 +1,9 @@
 # dt-money-ignite
 Uma aplicação que faz todo gerenciamento de entrada, saida e calcula o total de finanças pessoais.
 
+![Capa](https://user-images.githubusercontent.com/60861927/214338281-8d9122c9-2ee5-4303-a40d-cd8f79221631.png)
+
+
 # Tecnologias
 
 - ReactJS
