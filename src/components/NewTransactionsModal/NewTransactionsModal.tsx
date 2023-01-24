@@ -23,7 +23,10 @@ export const NewTransactionsModal: React.FunctionComponent = () => {
     handleSubmit,
     formState: { isSubmitting }
   } = useForm<NewTransactionFormInputs>({
-    resolver: zodResolver(newTransactionFormSchema)
+    resolver: zodResolver(newTransactionFormSchema),
+    defaultValues: {
+      type: 'income'
+    }
   })
 
   const handleCreateNewTransaction = async(data: NewTransactionFormInputs) => {
@@ -53,7 +56,7 @@ export const NewTransactionsModal: React.FunctionComponent = () => {
             {...register('price', { valueAsNumber: true })}
           />
           <input
-            type="number"
+            type="text"
             placeholder="Categoria"
             required
             {...register('category')}
