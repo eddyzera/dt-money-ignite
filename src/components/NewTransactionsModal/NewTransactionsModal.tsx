@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Controller, useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CloseButton, Content, Overlay, TransactionType, TransactionTypeButton } from './styles'
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
-import { api } from '../../lib/axios'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -17,6 +17,8 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export const NewTransactionsModal: React.FunctionComponent = () => {
+
+  const { createTransactions } = useContext(TransactionsContext)
 
   const {
     control,
@@ -33,13 +35,7 @@ export const NewTransactionsModal: React.FunctionComponent = () => {
 
   const handleCreateNewTransaction = async(data: NewTransactionFormInputs) => {
     const { description, price, category, type } = data
-    await api.post('/transactions', {
-      description,
-      price,
-      category,
-      type,
-      createdAt: new Date(),
-    })
+    createTransactions({description, price, category, type})
     reset()
   }
 
