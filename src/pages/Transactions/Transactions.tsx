@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useContextSelector } from 'use-context-selector'
 import { Header, SearchForm, Summary } from '../../components'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
@@ -9,7 +10,10 @@ import {
 } from './styles'
 
 export const Transactions: React.FunctionComponent = () => {
-  const { transactions } = useContext(TransactionsContext)
+  const transactions = useContextSelector(
+    TransactionsContext,
+    (context) => context.transactions,
+  )
 
   return (
     <div>

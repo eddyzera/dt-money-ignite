@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useContextSelector } from 'use-context-selector'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Controller, useForm } from 'react-hook-form'
 import * as z from 'zod'
@@ -23,7 +24,12 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export const NewTransactionsModal: React.FunctionComponent = () => {
-  const { createTransactions } = useContext(TransactionsContext)
+  const createTransactions = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.createTransactions
+    },
+  )
 
   const {
     control,
