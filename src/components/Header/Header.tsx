@@ -4,7 +4,6 @@ import logImg from '../../assets/logo.svg'
 import { HeaderContainer, HeaderContent, NewTransacionButton } from './styles'
 import { NewTransactionsModal } from '../NewTransactionsModal/NewTransactionsModal'
 
-
 export const Header: React.FunctionComponent = () => {
   return (
     <HeaderContainer>

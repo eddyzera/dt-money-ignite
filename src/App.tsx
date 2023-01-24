@@ -6,12 +6,12 @@ import { Transactions } from './pages'
 import { TransactionsProvider } from './contexts/TransactionsContext'
 
 export const App: React.FunctionComponent = () => {
- return (
-  <ThemeProvider theme={defaultTheme}>
-    <GlobalStyle />
-    <TransactionsProvider>
-      <Transactions />
-    </TransactionsProvider>
-  </ThemeProvider>
- )
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle />
+      <TransactionsProvider>
+        <Transactions />
+      </TransactionsProvider>
+    </ThemeProvider>
+  )
 }

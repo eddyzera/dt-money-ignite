@@ -5,7 +5,6 @@ import { priceFormatter } from '../../utils/formatter'
 import { useSummary } from '../../hooks/useSummary'
 
 export const Summary: React.FunctionComponent = () => {
-
   const summary = useSummary()
 
   return (
@@ -26,7 +25,7 @@ export const Summary: React.FunctionComponent = () => {
         <strong>{priceFormatter.format(summary.outcome)}</strong>
       </SummaryCard>
 
-      <SummaryCard variant='green'>
+      <SummaryCard variant="green">
         <header>
           <span>Total</span>
           <CurrencyDollar size={32} color="#fff" />

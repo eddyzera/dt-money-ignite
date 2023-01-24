@@ -7,26 +7,29 @@ import { SearchFormContainer } from './styles'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
 
 const searchFormSchema = z.object({
-  query: z.string()
+  query: z.string(),
 })
 
 type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export const SearchForm: React.FunctionComponent = () => {
-  
   const { fetchTransactions } = useContext(TransactionsContext)
 
-  const { register, handleSubmit, formState: { isSubmitting } } = useForm<SearchFormInputs>({
-    resolver: zodResolver(searchFormSchema)
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema),
   })
 
-  const handleSearchTransactions = async(data: SearchFormInputs) => {
+  const handleSearchTransactions = async (data: SearchFormInputs) => {
     await fetchTransactions(data.query)
   }
 
   return (
     <SearchFormContainer onSubmit={handleSubmit(handleSearchTransactions)}>
-      <input 
+      <input
         type="text"
         placeholder="Busque por transações"
         {...register('query')}
