@@ -23,6 +23,14 @@
       "category": "Alimentação",
       "price": 60,
       "createdAt": "2023-01-07T19:07:49.166Z"
+    },
+    {
+      "description": "Site das Europas",
+      "price": 12000,
+      "category": "venda",
+      "type": "income",
+      "createdAt": "2023-01-24T16:16:05.818Z",
+      "id": 4
     }
   ]
 }
